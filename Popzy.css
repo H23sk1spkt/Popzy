@@ -1,4 +1,6 @@
-
+body {
+    overflow-y: hidden;
+}
 .popzy__backup{
     position: fixed;
     display: flex;
@@ -11,6 +13,14 @@
     transition: opacity visibility;
     transition-duration: .3s;
 }
+.wrapper {
+    position: fixed;
+    inset: 0;
+    overflow-y: auto;
+    padding-right:50px ;
+    /* khi dùng this._getscrollbar thi nó sẽ đè lên giá trị padding right tương ứng với thanh scroll, làm cho trang bị dựt  */
+
+}
 .popzy--show {
     opacity: 1;
     visibility: inherit;
@@ -20,7 +30,7 @@
     background:#fff ;
     width: min(600px,90%);
     border-radius: 10px;
-    padding: 28px;
+    padding: 28px 0 0;
     transform: scale(0);
     transition: transform 1s;
 
@@ -47,6 +57,9 @@
 .popzy__footer{
     display: flex;
     justify-content: flex-end;
-    padding: 20px 0;
+    padding: 25px;
     gap:8px;
+}
+.popzy--no-scroll {
+    overflow-y: hidden;
 }
