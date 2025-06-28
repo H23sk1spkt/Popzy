@@ -57,7 +57,7 @@ function Popzy(option= {}){
         }
             //create element từng phần tử
         this.backup=document.createElement("div")// tạo sẵn 1 cái backup từ this
-        this.backup.className="popzy__backup"
+        this.backup.className="popzy"
         
         const container=document.createElement("div")
         container.className="popzy__background"
@@ -169,9 +169,6 @@ Popzy.prototype.open=function() {
 Popzy.prototype._handleEscapeKey= function(e)  {
         // console.log(this); khi chưa dùng đin this nó sẽ trỏ vào documnet 
         console.log(this);
-        
-
-        
         const lastModal=Popzy.elements[Popzy.elements.length-1]
         if (e.key === "Escape" && this===lastModal) {
             this.closeModal();
@@ -206,7 +203,6 @@ Popzy.prototype.closeModal=function(destroy=this.opt.destroyOnclose) {
                 }
                 if(this.opt.enablescroll && !Popzy.elements.length){
                     const target=this.opt.ScrollLockTarget();
-                    console.log({target});
                     
                     target.classList.remove("popzy--no-scroll")
                     target.style.paddingRight=""
@@ -216,7 +212,14 @@ Popzy.prototype.closeModal=function(destroy=this.opt.destroyOnclose) {
 }
 // XỬ LÍ TRƯỜNG HỢP NẾU NOOIN UDNG TRANG WEB KO ĐỦ ĐỂ TẠO KHÓA CUỘN MÀ NÓ VẪN PADDING RIGTH THÌ SAO
 Popzy.prototype._hasscrollbar= function(target){
-    return target.offsetWidth > target.clientWidth
+    // bỏ wrapper thì nó ko khóa cuộn nữa
+    // ỨNG BIẾN TRONG MỌI TÌNH HUỐNG
+    //BỞI VÌ TARGET LẤY MẶC ĐỊNH GIÁ TRỊ LÀ BODY TRUYỀN VÀO NÊN NHIỀU TRÌNH DUYỆT KO NHẬN BIẾT THÀNH RA SAI , KO ẨN KHÓA CUỘN KHI MỞ MODAL MỚI , CÁCH DƯỚI SẼ LINH HOẠT HƠN NHIỀU , NÓ CÓ THỂ ỨNG BIẾN TRONG MỌI TÌNH HUỐNG
+    if([document.documentElement,document.body].includes(target)){
+        return document.documentElement.scrollHeight>document.documentElement.clientHeight || document.body.scrollHeight>document.body.clientHeight
+    }
+    // CÁCH NÀY LÀ THẺ BỌC KO PHẢI BODY HAY HTML , NÊN NÓ MẶC ĐỊNH LÀ THẺ ĐÓ (VD: ĐẶT THẺ BỌC LÀ WRAPPER) TRÊN MỌI TRÌNH DUYỆT 
+    return target.scrollHeight > target.clientHeight
 }
 
 

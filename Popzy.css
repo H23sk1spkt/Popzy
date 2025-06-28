@@ -1,7 +1,5 @@
-body {
-    overflow-y: hidden;
-}
-.popzy__backup{
+
+.popzy{
     position: fixed;
     display: flex;
     justify-content: center;
