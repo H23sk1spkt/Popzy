@@ -211,7 +211,7 @@ Popzy.prototype.closeModal=function(destroy=this.opt.destroyOnclose) {
     )// này nó cũng duyệt callback trước rồi mới tính thực thi thân hàm phía trong
 }
 // XỬ LÍ TRƯỜNG HỢP NẾU NOOIN UDNG TRANG WEB KO ĐỦ ĐỂ TẠO KHÓA CUỘN MÀ NÓ VẪN PADDING RIGTH THÌ SAO
-Popzy.prototype._hasscrollbar= function(target){
+Popzy.prototype._hasscrollbar= (target)=>{
     // bỏ wrapper thì nó ko khóa cuộn nữa
     // ỨNG BIẾN TRONG MỌI TÌNH HUỐNG
     //BỞI VÌ TARGET LẤY MẶC ĐỊNH GIÁ TRỊ LÀ BODY TRUYỀN VÀO NÊN NHIỀU TRÌNH DUYỆT KO NHẬN BIẾT THÀNH RA SAI , KO ẨN KHÓA CUỘN KHI MỞ MODAL MỚI , CÁCH DƯỚI SẼ LINH HOẠT HƠN NHIỀU , NÓ CÓ THỂ ỨNG BIẾN TRONG MỌI TÌNH HUỐNG

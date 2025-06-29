@@ -11,14 +11,6 @@
     transition: opacity visibility;
     transition-duration: .3s;
 }
-.wrapper {
-    position: fixed;
-    inset: 0;
-    overflow-y: auto;
-    padding-right:50px ;
-    /* khi dùng this._getscrollbar thi nó sẽ đè lên giá trị padding right tương ứng với thanh scroll, làm cho trang bị dựt  */
-
-}
 .popzy--show {
     opacity: 1;
     visibility: inherit;
